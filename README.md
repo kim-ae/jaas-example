@@ -1,7 +1,7 @@
 # jaas-example
 Doing a simple example of authentication using jax + jaas with forms.
 #Configuration
-In order to work we need to say to the server where is our jass.config.
+In order to work we need to tell the server where is our jass.config.
 I only tested it on Tomee Server, so the following steps will work for sure in tomee server I'm not sure if it's the same process to get it working on other servers.
 ## Eclipse
 1. Double-click the Tomcat instance on servers tab
