@@ -15,6 +15,7 @@ import javax.security.auth.spi.LoginModule;
 import com.kimae.jaas.enumerator.Role;
 import com.kimae.jaas.model.User;
 import com.kimae.jaas.principal.RolePrincipal;
+import com.kimae.jaas.principal.UserPrincipal;
 import com.kimae.repository.UserDao;
 
 
@@ -57,6 +58,7 @@ public class CustomLoginModule implements LoginModule{
     @Override
     public boolean commit() throws LoginException {
         User user = credential.getUser();
+        subject.getPrincipals().add(new UserPrincipal(user.getLogin()));
         for (Role groupName : user.getRoles()) {
             subject.getPrincipals().add(new RolePrincipal(groupName));
         }

@@ -14,6 +14,8 @@ public class UserDao implements UserRepository {
             return User.getSimpleUser("user", "pass123");
         }else if(login.equals("admin")){
             return new User("admin", "pass123", Arrays.asList(Role.ADMIN, Role.EXECUTIVE));
+        }else if(login.equals("executive")){
+            return new User("executive", "pass123", Arrays.asList(Role.ADMIN, Role.EXECUTIVE));
         }else{
             return null;
         }
