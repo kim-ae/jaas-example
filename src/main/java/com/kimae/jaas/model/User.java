@@ -28,4 +28,9 @@ public class User {
     public List<Role> getRoles(){
         return new ArrayList<Role>(this.roles);
     }
+
+
+    public static User getSimpleUser(String login, String password) {
+        return new User(login, password, new ArrayList<Role>());
+    }
 }
