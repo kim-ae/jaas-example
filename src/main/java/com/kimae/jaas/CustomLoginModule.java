@@ -2,7 +2,6 @@ package com.kimae.jaas;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.security.auth.Subject;
 import javax.security.auth.callback.Callback;
@@ -24,14 +23,12 @@ public class CustomLoginModule implements LoginModule{
     private CallbackHandler handler;
     private Subject subject;
     private Credential credential;
-    private static final Logger logger = Logger.getLogger(CustomLoginModule.class.getName());
     
     @Override
     public void initialize(Subject subject, CallbackHandler callbackHandler, Map<String, ?> sharedState,
             Map<String, ?> options) {
         this.handler = callbackHandler;
         this.subject = subject;
-        logger.info("Passei aqui 1");
     }
 
     @Override
@@ -44,8 +41,7 @@ public class CustomLoginModule implements LoginModule{
             String name = ((NameCallback) callbacks[0]).getName();
             String password = String.valueOf(((PasswordCallback) callbacks[1]).getPassword());
             credential = new Credential(name, password, new UserDao());
-            logger.info("->>>>>>>>>>>>>>>>>> "+name+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-");
-            logger.info("->>>>>>>>>>>>>>>>>> "+password+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-");
+
             if (credential.isAuthorized()) {
                 return true;
             }
@@ -74,6 +70,7 @@ public class CustomLoginModule implements LoginModule{
 
     @Override
     public boolean logout() throws LoginException {
-        return false;
+        subject.getPrincipals().clear();
+        return true;
     }
 }

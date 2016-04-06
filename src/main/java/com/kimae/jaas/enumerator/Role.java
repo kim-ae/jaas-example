@@ -1,5 +1,5 @@
 package com.kimae.jaas.enumerator;
 
 public enum Role {
-    ADMIN
+    ADMIN, EXECUTIVE
 }
