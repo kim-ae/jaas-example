@@ -1,4 +1,4 @@
-package com.kimae.jaas.model;
+package com.kimae.jaas.entity;
 
 import java.util.List;
 

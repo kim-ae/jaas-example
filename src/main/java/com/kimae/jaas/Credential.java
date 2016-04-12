@@ -1,6 +1,6 @@
 package com.kimae.jaas;
 
-import com.kimae.jaas.model.User;
+import com.kimae.jaas.entity.User;
 import com.kimae.repository.interfaces.UserRepository;
 
 public class Credential {

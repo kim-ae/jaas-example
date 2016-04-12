@@ -1,7 +1,10 @@
 package com.kimae.repository.interfaces;
 
-import com.kimae.jaas.model.User;
+import javax.ejb.Local;
 
+import com.kimae.jaas.entity.User;
+
+@Local
 public interface UserRepository {
     public User getByLogin(String login);
 }

@@ -1,4 +1,4 @@
-package com.kimae.jaas.model;
+package com.kimae.jaas.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.kimae.jaas.model.RoleEntity.Role;
+import com.kimae.jaas.entity.RoleEntity.Role;
 
 
 @Entity

@@ -2,7 +2,7 @@ package com.kimae.jaas.principal;
 
 import java.security.Principal;
 
-import com.kimae.jaas.model.RoleEntity.Role;
+import com.kimae.jaas.entity.RoleEntity.Role;
 
 
 public class RolePrincipal implements Principal {

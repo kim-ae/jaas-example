@@ -1,24 +1,22 @@
 package com.kimae.repository;
 
-import java.util.Arrays;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import com.kimae.jaas.model.RoleEntity.Role;
-import com.kimae.jaas.model.User;
+import com.kimae.jaas.entity.User;
 import com.kimae.repository.interfaces.UserRepository;
 
+@Stateless(name="user-dao")
 public class UserDao implements UserRepository {
+    
+    @PersistenceContext(unitName="Example-PU")
+    EntityManager entityManager;
 
     @Override
     public User getByLogin(String login) {
-        if(login.equals("user")){
-            return User.getSimpleUser("user", "pass123");
-        }else if(login.equals("admin")){
-            return new User("admin", "pass123", Arrays.asList(Role.ADMIN, Role.EXECUTIVE));
-        }else if(login.equals("executive")){
-            return new User("executive", "pass123", Arrays.asList(Role.ADMIN, Role.EXECUTIVE));
-        }else{
-            return null;
-        }
-        
+        return entityManager.createNamedQuery("User.getByLogin", User.class)
+                            .setParameter("login", login)
+                            .getSingleResult();
     }
 }

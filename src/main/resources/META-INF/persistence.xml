@@ -6,8 +6,8 @@
        <provider>org.hibernate.ejb.HibernatePersistence</provider>
        <jta-data-source>java:jdbc/postgresds</jta-data-source>
        <mapping-file>META-INF/orm.xml</mapping-file>
-        <class>com.kimae.jaas.model.RoleEntity</class>
-        <class>com.kimae.jaas.model.User</class>
+        <class>com.kimae.jaas.entity.RoleEntity</class>
+        <class>com.kimae.jaas.entity.User</class>
         <properties>
             <property name="hibernate.hbm2ddl.import_files_sql_extractor" value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor" />
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
