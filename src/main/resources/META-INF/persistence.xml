@@ -1,0 +1,17 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="Example-PU" transaction-type="JTA">
+       <provider>org.hibernate.ejb.HibernatePersistence</provider>
+       <jta-data-source>java:jdbc/postgresds</jta-data-source>
+       <mapping-file>META-INF/orm.xml</mapping-file>
+        <class>com.kimae.jaas.model.RoleEntity</class>
+        <class>com.kimae.jaas.model.User</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

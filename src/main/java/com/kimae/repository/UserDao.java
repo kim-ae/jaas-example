@@ -2,7 +2,7 @@ package com.kimae.repository;
 
 import java.util.Arrays;
 
-import com.kimae.jaas.enumerator.Role;
+import com.kimae.jaas.model.RoleEntity.Role;
 import com.kimae.jaas.model.User;
 import com.kimae.repository.interfaces.UserRepository;
 

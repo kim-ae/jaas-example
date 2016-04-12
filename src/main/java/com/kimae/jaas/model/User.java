@@ -2,13 +2,40 @@ package com.kimae.jaas.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import com.kimae.jaas.enumerator.Role;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
+import com.kimae.jaas.model.RoleEntity.Role;
+
+
+@Entity
 public class User {
+    @Id
+    @Column
+    private int id;
+    @Column
     private String login;
+    @Column
     private String password;
+    
+    @ManyToMany
+    @JoinTable(
+            name="user_role_relation",
+            joinColumns=@JoinColumn(name="user_id", referencedColumnName="id"),
+            inverseJoinColumns=@JoinColumn(name="role_id", referencedColumnName="id"))
+    private List<RoleEntity> roleEntities;
+    
+    @Transient
     private List<Role> roles;
+    
+    public User(){}
     
     public User(String login, String password, List<Role> roles){
         this.login = login;
@@ -26,6 +53,9 @@ public class User {
     }
     
     public List<Role> getRoles(){
+        if(this.roles == null){
+            this.roles = roleEntities.stream().map(re -> re.getCode()).collect(Collectors.toList());
+        }
         return new ArrayList<Role>(this.roles);
     }
 

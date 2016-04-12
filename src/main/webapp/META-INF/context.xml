@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <Context>
     <Realm className="org.apache.catalina.realm.JAASRealm" appName="JaasExample" roleClassNames="com.kimae.jaas.principal.RolePrincipal" userClassNames="com.kimae.jaas.principal.UserPrincipal"/>
+    <Resource name="jdbc/postgresds"
+        auth="Container"
+        type="javax.sql.DataSource"
+        initialSize="5"
+        maxActive="55"
+        maxIdle="21"
+        minIdle="3"
+        timeBetweenEvictionRunsMillis="34000"
+        minEvictableIdleTimeMillis="55000"
+        validationQuery="SELECT 1"
+        validationInterval="34"
+        testOnBorrow="true"
+        removeAbandoned="true"
+        removeAbandonedTimeout="233"
+        driverClassName="org.postgresql.Driver"
+        url="jdbc:postgresql://localhost:5432/example-jaas"
+        username="postgres"
+        password="postgres"/>
 </Context>

@@ -12,7 +12,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
-import com.kimae.jaas.enumerator.Role;
+import com.kimae.jaas.model.RoleEntity.Role;
 import com.kimae.jaas.model.User;
 import com.kimae.jaas.principal.RolePrincipal;
 import com.kimae.jaas.principal.UserPrincipal;
