@@ -6,19 +6,24 @@ import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.kimae.jaas.model.RoleEntity.Role;
 
 
 @Entity
+@Table(name="system_user")
 public class User {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String login;
