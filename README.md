@@ -19,5 +19,7 @@ JAVA_OPTS="$JAVA_OPTS -Djava.security.auth.login.config=\"<PATH>/jaas.config\""
 
 # Source
 Basic JAAS: http://www.byteslounge.com/tutorials/jaas-authentication-in-tomcat-example
+
 JAAS with form: http://www.byteslounge.com/tutorials/jaas-form-based-authentication-in-tomcat-example
+
 JAAS logout: http://www.byteslounge.com/tutorials/jaas-logout-example
